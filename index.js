@@ -6,7 +6,7 @@ const request = require('request')
 
 const app = express()
 
-let token = 'EAAEcFHC0s3oBANkQDROKSKZBhp1dyNX4B4aMc1xcr4t8uUW5Lpe2SoD82asHRXZC9RTZAEgZCdYkDwNY3Ysd7C1sFuNZBXYhrZCZBbuPFMg5WYZAfQ72zedZCZBgltZCrdFR3UQElFigELq91ZCvhxjeLXCZA3JZB89XXBezANp1jYOWsxHAZDZD'
+let token = process.env.token
 
 app.set('port', (process.env.PORT || 5000))
 
