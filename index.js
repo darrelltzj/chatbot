@@ -18,7 +18,7 @@ app.get('/', function(req, res) {
 })
 
 app.get('/webhook/', function(req, res) {
-  if (req.query['hub.verify_token'] === 'blondiebytes') {
+  if (req.query['hub.verify_token'] === process.env.verify_token) {
     res.send(req.query['hub.challenge'])
   }
   res.send('Wrong token')
@@ -31,7 +31,7 @@ app.post('/webhook/', function(req, res) {
     let sender = event.sender.id
     if (event.message && event.message.text) {
       let text = event.message.text
-      sendText(sender, 'Text echo:' + text.substring(0,100))
+      sendText(sender, 'Echo Reply: ' + text.substring(0,100))
     }
   }
   res.sendStatus(200)
